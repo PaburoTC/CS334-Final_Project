@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class NoiseData : UpdatableData{
+public class NoiseData : ScriptableObject{
     
     public int seed;
 	public int octaves;

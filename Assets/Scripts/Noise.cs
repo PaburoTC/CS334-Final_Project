@@ -10,8 +10,8 @@ public static class Noise{
 		Vector2[] octaveOffsets = new Vector2[noiseData.octaves];
 		
 		for (int i = 0; i < noiseData.octaves; i++) {
-			float offsetX = prng.Next (-100000, 100000) + noiseData.offset.x;
-			float offsetY = prng.Next (-100000, 100000) - noiseData.offset.y;
+			float offsetX = prng.Next(-100000, 100000) + noiseData.offset.x;
+			float offsetY = prng.Next(-100000, 100000) - noiseData.offset.y;
 			octaveOffsets [i] = new Vector2 (offsetX, offsetY);
 		}
 
@@ -47,7 +47,7 @@ public static class Noise{
 
 		for (int y = 0; y < mapLength; y++) {
 			for (int x = 0; x < mapLength; x++) {
-				noiseMap [x, y] = Mathf.InverseLerp (minLocalNoiseHeight, maxLocalNoiseHeight, noiseMap [x, y]);
+				noiseMap [x, y] = Mathf.InverseLerp(minLocalNoiseHeight, maxLocalNoiseHeight, noiseMap [x, y]);
 			}
 		}
 
