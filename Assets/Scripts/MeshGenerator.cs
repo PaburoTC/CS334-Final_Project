@@ -3,12 +3,12 @@ using System.Collections;
 
 public static class MeshGenerator {
 
-	public static MeshData GenerateTerrainMesh(float[,] heightMap, TerrainData terrainData) {
+	public static MeshData TerrainMesh(float[,] heightMap, TerrainData terrainData) {
 		
 
 		int mapLength = heightMap.GetLength (0);
-		int meshSimplificationIncrement = terrainData.LOD == 0 ? 1 : terrainData.LOD * 2;
-		int verticesPerLine = (mapLength - 1) / meshSimplificationIncrement + 1;
+		int LOD = terrainData.LOD == 0 ? 1 : terrainData.LOD * 2;
+		int verticesPerLine = (mapLength - 1) / LOD + 1;
 		int meshVertexIndex = 0;
 
 		float topLeftX = (mapLength - 1) / -2f;
@@ -18,28 +18,28 @@ public static class MeshGenerator {
 		
 		MeshData meshData = new MeshData (verticesPerLine, terrainData.normalMode);
 		
-		for (int y = 0; y < mapLength; y += meshSimplificationIncrement) {
-			for (int x = 0; x < mapLength; x += meshSimplificationIncrement) {
+		for (int y = 0; y < mapLength; y += LOD) {
+			for (int x = 0; x < mapLength; x += LOD) {
 				vertexIndicesMap [x, y] = meshVertexIndex;
 				meshVertexIndex++;
 			}
 		}
 
-		for (int y = 0; y < mapLength; y += meshSimplificationIncrement) {
-			for (int x = 0; x < mapLength; x += meshSimplificationIncrement) {
+		for (int y = 0; y < mapLength; y += LOD) {
+			for (int x = 0; x < mapLength; x += LOD) {
 				int vertexIndex = vertexIndicesMap [x, y];
-				Vector2 percent = new Vector2 ((x-meshSimplificationIncrement) / (float)mapLength, (y-meshSimplificationIncrement) / (float)mapLength);
+				Vector2 percent = new Vector2 ((x-LOD) / (float)mapLength, (y-LOD) / (float)mapLength);
 				float height = terrainData.meshHeightCurve.Evaluate (heightMap [x, y]) * terrainData.meshHeightMultiplier;
 				Vector3 vertexPosition = new Vector3 (topLeftX + percent.x * mapLength, height, topLeftZ - percent.y * mapLength);
 
 				if( x < mapLength - 1 && y < mapLength - 1){
-					int a = vertexIndicesMap [x, y];
-					int b = vertexIndicesMap [x + meshSimplificationIncrement, y];
-					int c = vertexIndicesMap [x, y + meshSimplificationIncrement];
-					int d = vertexIndicesMap [x + meshSimplificationIncrement, y + meshSimplificationIncrement];
-					meshData.AddTriangle (a,d,c);
-					meshData.AddTriangle (d,a,b);
-					meshData.AddVertex (vertexPosition, percent, vertexIndex);
+					int a = vertexIndicesMap[x      ,       y];
+					int b = vertexIndicesMap[x + LOD,       y];
+					int c = vertexIndicesMap[x      , y + LOD];
+					int d = vertexIndicesMap[x + LOD, y + LOD];
+					meshData.AddTriangle(a,d,c);
+					meshData.AddTriangle(d,a,b);
+					meshData.AddVertex(vertexPosition, percent, vertexIndex);
 				}
 				vertexIndex++;
 			}
@@ -50,13 +50,13 @@ public static class MeshGenerator {
 }
 
 public class MeshData {
-	Vector3[] vertices;
-	Vector3[] normals;
-	Vector2[] uvs;
+	int triangleIndex;
 
 	int[] triangles;
 
-	int triangleIndex;
+	Vector3[] vertices;
+	Vector3[] normals;
+	Vector2[] uvs;
 
 	NormalMode normalMode;
 

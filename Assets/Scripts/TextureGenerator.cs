@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class TextureGenerator {
 
-	public static Texture2D TextureFromColorMap(Color[] colourMap, int size) {
+	public static Texture2D FromColorMap(Color[] colourMap, int size) {
 		Texture2D texture = new Texture2D (size, size);
 		texture.filterMode = FilterMode.Point;
 		texture.wrapMode = TextureWrapMode.Clamp;
@@ -13,7 +13,7 @@ public static class TextureGenerator {
 	}
 
 
-	public static Texture2D TextureFromHeightMap(float[,] heightMap) {
+	public static Texture2D FromHeightMap(float[,] heightMap) {
 		int size = heightMap.GetLength (0);
 
 		Color[] colorMap = new Color[size * size];
@@ -23,10 +23,10 @@ public static class TextureGenerator {
 			}
 		}
 
-		return TextureFromColorMap (colorMap, size);
+		return FromColorMap (colorMap, size);
 	}
 
-	public static Texture2D TextureColorFromHeightMap(float[, ] heightMap, TextureData textureData){
+	public static Texture2D ColorFromHeightMap(float[, ] heightMap, TextureData textureData){
 		int size = heightMap.GetLength (0);
 
 		Color[] colorMap = new Color[size * size];
@@ -47,7 +47,7 @@ public static class TextureGenerator {
 			}
 		}
 
-		return TextureFromColorMap (colorMap, size);
+		return FromColorMap (colorMap, size);
 	}
 
 }

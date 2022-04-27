@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour {
 	static int mapChunkSize = 241;
 
 	float[,] heightMap;
-	float[,] falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
+	float[,] falloffMap = FalloffGenerator.FalloffMap(mapChunkSize);
 
 	public NoiseData noiseData;
 	public TerrainData terrainData;
@@ -29,28 +29,28 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	public void DrawMap() {
-		heightMap = GenerateNoiseMap(Vector2.zero);
+		heightMap = NoiseMap(Vector2.zero);
 		MapDisplay display = FindObjectOfType<MapDisplay> ();
 		switch (drawMode){
 			case DrawMode.NoiseMap:
-				display.DrawTexture(TextureGenerator.TextureFromHeightMap(heightMap));
+				display.DrawTexture(TextureGenerator.FromHeightMap(heightMap));
 				break;
 			case DrawMode.ColorMap:
-				display.DrawTexture(TextureGenerator.TextureColorFromHeightMap(heightMap, textureData));
+				display.DrawTexture(TextureGenerator.ColorFromHeightMap(heightMap, textureData));
 				break;
 			case DrawMode.Mesh:
-				display.DrawMesh(MeshGenerator.GenerateTerrainMesh(heightMap, terrainData));
+				display.DrawMesh(MeshGenerator.TerrainMesh(heightMap, terrainData));
 				break;
 			case DrawMode.FallOffMap:
-				display.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(mapChunkSize)));
+				display.DrawTexture(TextureGenerator.FromHeightMap(FalloffGenerator.FalloffMap(mapChunkSize)));
 				break;
 		}
 	}
 
-	float[,] GenerateNoiseMap(Vector2 centre) {
-		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize, noiseData);
+	float[,] NoiseMap(Vector2 centre) {
+		float[,] noiseMap = Noise.NoiseMap (mapChunkSize, noiseData);
 		if (terrainData.useFalloff){
-			falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
+			falloffMap = FalloffGenerator.FalloffMap(mapChunkSize);
 		
 			for (int y = 0; y < mapChunkSize; y++) {
 				for (int x = 0; x < mapChunkSize; x++) {
