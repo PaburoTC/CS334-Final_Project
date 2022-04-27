@@ -1,4 +1,10 @@
+# Starting compiling UnityEngine.TestRunner.dll
+/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-d4ae4a5c249876ee7a464837d816556b
+# Starting compiling UnityEngine.UI.dll
+/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-88301445bddbeb687b65946da7c1d0bc
+# Starting compiling Unity.Timeline.dll
+/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-749432c2803c571bb9689a099523f9b7
+# Starting compiling Unity.TextMeshPro.dll
+/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-c1520cd4f22c2b25cbd05fe810bea7c0
 # Starting compiling Assembly-CSharp.dll
-/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-5effe23b74248bc6b8280177be17109a
-# Starting compiling Assembly-CSharp-Editor.dll
-/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-9f2641d666fb013c59977e03b88dbc29
+/home/paburo/Unity/Hub/Editor/2020.3.33f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-757ced049d6d9b48f95b102ad7068f97
