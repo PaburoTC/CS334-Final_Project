@@ -91,31 +91,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2510}
     - Class: 114
-      Script: {instanceID: 2636}
+      Script: {instanceID: 2634}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2830}
+      Script: {instanceID: 2828}
     - Class: 114
-      Script: {instanceID: 2834}
+      Script: {instanceID: 2832}
     - Class: 114
-      Script: {instanceID: 2910}
+      Script: {instanceID: 2908}
     - Class: 114
-      Script: {instanceID: 3472}
+      Script: {instanceID: 3470}
     - Class: 114
-      Script: {instanceID: 3626}
+      Script: {instanceID: 3624}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 3666}
     - Class: 114
-      Script: {instanceID: 3760}
+      Script: {instanceID: 3758}
     - Class: 114
-      Script: {instanceID: 3776}
+      Script: {instanceID: 3774}
     - Class: 114
-      Script: {instanceID: 3860}
+      Script: {instanceID: 3858}
     - Class: 114
-      Script: {instanceID: 4124}
+      Script: {instanceID: 4122}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 4338}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -293,12 +293,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UpdatableData
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
